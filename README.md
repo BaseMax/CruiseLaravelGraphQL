@@ -573,7 +573,9 @@ class CreateCarCategoriesTable extends Migration
         Schema::dropIfExists('car_categories');
     }
 }
-Bookings Table Migration (create_bookings_table.php):
+```
+
+### Bookings Table Migration (create_bookings_table.php):
 
 ```php
 use Illuminate\Database\Migrations\Migration;
@@ -634,7 +636,9 @@ class CreateReviewsTable extends Migration
         Schema::dropIfExists('reviews');
     }
 }
-Car Images Table Migration (create_car_images_table.php):
+```
+
+### Car Images Table Migration (create_car_images_table.php):
 
 ```php
 use Illuminate\Database\Migrations\Migration;
@@ -689,7 +693,9 @@ class CreatePaymentsTable extends Migration
         Schema::dropIfExists('payments');
     }
 }
-Promotions Table Migration (create_promotions_table.php):
+```
+
+### Promotions Table Migration (create_promotions_table.php):
 
 ```php
 use Illuminate\Database\Migrations\Migration;
@@ -746,7 +752,9 @@ class CreateAddressesTable extends Migration
         Schema::dropIfExists('addresses');
     }
 }
-RentalHistories Table Migration (create_rental_histories_table.php):
+```
+
+### RentalHistories Table Migration (create_rental_histories_table.php):
 
 ```php
 use Illuminate\Database\Migrations\Migration;
@@ -803,7 +811,9 @@ class CreateCarFeaturesTable extends Migration
         Schema::dropIfExists('car_features');
     }
 }
-MaintenanceLogs Table Migration (create_maintenance_logs_table.php):
+```
+
+### MaintenanceLogs Table Migration (create_maintenance_logs_table.php):
 
 ```php
 use Illuminate\Database\Migrations\Migration;
