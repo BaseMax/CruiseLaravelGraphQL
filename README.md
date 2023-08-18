@@ -2026,6 +2026,192 @@ class CreateEmployeeRolesTable extends Migration
 
 Adjust the files according to your project's needs, relationships, and any additional columns you might require. After creating the migrations, run php artisan migrate to apply them to your database.
 
+## GraphQL Structure
+
+```graphql
+type User {
+  id: Int!
+  name: String!
+  email: String!
+  password: String!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type Car {
+  id: Int!
+  make: String!
+  model: String!
+  year: Int!
+  price: Float!
+  category: CarCategory!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type CarCategory {
+  id: Int!
+  name: String!
+  description: String!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type Booking {
+  id: Int!
+  user: User!
+  car: Car!
+  pickup_date: Date!
+  return_date: Date!
+  status: String!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type Review {
+  id: Int!
+  user: User!
+  car: Car!
+  rating: Int!
+  review_text: String!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type CarImage {
+  id: Int!
+  car: Car!
+  url: String!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type Payment {
+  id: Int!
+  booking: Booking!
+  amount: Float!
+  payment_date: Date!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type Promotion {
+  id: Int!
+  code: String!
+  discount_percentage: Int!
+  expiry_date: Date!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type Address {
+  id: Int!
+  user: User!
+  street: String!
+  city: String!
+  state: String!
+  country: String!
+  postal_code: String!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type RentalHistory {
+  id: Int!
+  user: User!
+  car: Car!
+  pickup_date: Date!
+  return_date: Date!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type CarFeature {
+  id: Int!
+  car: Car!
+  feature: String!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type MaintenanceLog {
+  id: Int!
+  car: Car!
+  log_date: Date!
+  description: String!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type Notification {
+  id: Int!
+  user: User!
+  message: String!
+  is_read: Boolean!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type Wishlist {
+  id: Int!
+  user: User!
+  car: Car!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type CarAvailability {
+  id: Int!
+  car: Car!
+  availability_date: Date!
+  is_available: Boolean!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type CarRental {
+  id: Int!
+  user: User!
+  car: Car!
+  pickup_date: Date!
+  return_date: Date!
+  total_amount: Float!
+  status: String!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type Rating {
+  id: Int!
+  user: User!
+  car: Car!
+  rating: Int!
+  review: String!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+type Location {
+  id: Int!
+  name: String!
+  address: String!
+  latitude: Float!
+  longitude: Float!
+  created_at: DateTime!
+  updated_at: DateTime!
+}
+
+# Define the remaining types for the rest of the tables similarly...
+
+type Query {
+  # Add your query fields here...
+}
+
+type Mutation {
+  # Add your mutation fields here...
+}
+```
+
 ## Caching with Redis
 
 Redis caching is implemented to enhance the performance of CruiseGraphQL. Frequently accessed data, such as car details and availability status, are cached to minimize database queries and improve response times.
