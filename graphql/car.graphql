@@ -1,3 +1,4 @@
 extend type Query {
     availableCars: [Car]! @all
+    car(id: ID! @eq): Car @find
 }

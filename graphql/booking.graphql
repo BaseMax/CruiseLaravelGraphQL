@@ -1,0 +1,4 @@
+extend type Query {
+    booking(id: ID! @eq): Booking @find
+    userBookings(userId: ID!): [Booking]!
+}
