@@ -1,0 +1,381 @@
+type User {
+    id: ID!
+    name: String!
+    email: String!
+    password: String!
+    created_at: String
+    updated_at: String
+    bookings: [Booking]! @hasMany
+    reviews: [Review]! @hasMany
+    addresses: [Address]! @hasMany
+    histories: [History]! @hasMany
+    notifications: [Notification]! @hasMany
+    wishes: [Wish]! @hasMany
+    car_rentals: [CarRental]! @hasMany
+    ratings: [Rating]! @hasMany
+    rental_requests: [RentalRequest]! @hasMany
+    feedbacks: [Feedback]! @hasMany
+    car_issues: [CarIssue]! @hasMany
+    subscriptions: [UserSubscription]! @hasMany
+    service_requests: [ServiceRequest]! @hasMany
+    preferences: [Preference]! @hasMany
+    trip_logs: [TripLog]! @hasMany
+    traffic_violations: [TrafficViolation]! @hasMany
+    documents: [Document]! @hasMany
+    transactions: [Transaction]! @hasMany
+    loyalty_points: [LoyaltyPoint]! @hasMany
+}
+
+type Car {
+    id: ID!
+    make: String!
+    model: String!
+    year: Int!
+    price: Int!
+    category: Category! @belongsTo
+    bookings: [Booking]! @hasMany
+    reviews: [Review]! @hasMany
+    images: [Image]! @hasMany
+    histories: [History]! @hasMany
+    features: [Feature]! @hasMany
+    wishes: [Wish]! @hasMany
+    availabilities: [Availability]! @hasMany
+    Maintenance_logs: [MaintenanceLog]! @hasMany
+    car_rentals: [CarRental]! @hasMany
+    ratings: [Rating]! @hasMany
+    car_issues: [CarIssue]! @hasMany
+    accessories: [Accessory]! @hasMany
+    trip_logs: [TripLog]! @hasMany
+    fuel_logs: [FuelLog]! @hasMany
+    traffic_violations: [TrafficViolation]! @hasMany
+    created_at: String
+    updated_at: String
+}
+
+type Category {
+    id: ID!
+    name: String!
+    description: String!
+    created_at: String
+    updated_at: String
+    cars: [Car]! @hasMany
+    rental_requests: [RentalRequest]! @hasMany
+}
+
+type Booking {
+    id: ID!
+    user: User! @belongsTo
+    car: Car! @belongsTo
+    payments: [Payment]! @hasMany
+    pickup_date: String!
+    return_date: String!
+    status: String!
+    created_at: String
+    updated_at: String
+}
+
+type Review {
+    id: ID!
+    user: User! @belongsTo
+    car: Car! @belongsTo
+    rating: Int!
+    review_text: String!
+    created_at: String
+    updated_at: String
+}
+
+type Image {
+    id: ID!
+    car: Car! @belongsTo
+    url: String!
+    created_at: String
+    updated_at: String
+}
+
+type Payment {
+    id: ID!
+    booking: Booking! @belongsTo
+    amount: Int!
+    payment_date: String!
+    created_at: String
+    updated_at: String
+}
+
+type Promotion {
+    id: ID!
+    code: String!
+    discount_percentage: Int!
+    expiry_date: String!
+    created_at: String
+    updated_at: String
+}
+
+type Address {
+    id: ID!
+    user: User! @belongsTo
+    street: String!
+    city: String!
+    state: String!
+    country: String!
+    postal_code: String!
+    created_at: String
+    updated_at: String
+}
+
+type History {
+    id: ID!
+    user: User! @belongsTo
+    car: Car! @belongsTo
+    pickup_date: String!
+    return_date: String!
+    created_at: String
+    updated_at: String
+}
+
+type Feature {
+    id: ID!
+    car: Car! @belongsTo
+    feature: String!
+    created_at: String
+    updated_at: String
+}
+
+type Notification {
+    id: ID!
+    user: User! @belongsTo
+    message: String!
+    isRead: Boolean!
+    created_at: String
+    updated_at: String
+}
+
+type Wish {
+    id: ID!
+    user: User! @belongsTo
+    car: Car! @belongsTo
+    created_at: String
+    updated_at: String
+}
+
+type Availability {
+    id: ID!
+    car: Car! @belongsTo
+    availability_date: String!
+    is_available: Boolean!
+    created_at: String
+    updated_at: String
+}
+
+type MaintenanceLog {
+    id: ID!
+    car: Car! @belongsTo
+    log_date: String!
+    description: String!
+    created_at: String
+    updated_at: String
+}
+
+type CarRental {
+    id: ID!
+    user: User! @belongsTo
+    car: Car! @belongsTo
+    pickup_date: String!
+    return_date: String!
+    total_amount: Int!
+    status: String!
+    created_at: String
+    updated_at: String
+}
+
+type Rating {
+    id: ID!
+    user: User! @belongsTo
+    car: Car! @belongsTo
+    rating: Int!
+    review: String!
+    created_at: String
+    updated_at: String
+}
+
+type Location {
+    id: ID!
+    name: String!
+    address: String!
+    latitude: String!
+    longitude: String!
+    created_at: String
+    updated_at: String
+}
+
+type RentalRequest {
+    id: ID!
+    user: User! @belongsTo
+    category: Category! @belongsTo
+    pickup_date: String!
+    return_date: String!
+    status: String!
+    created_at: String
+    updated_at: String
+}
+
+type Feedback {
+    id: ID!
+    user: User! @belongsTo
+    subject: String!
+    message: String!
+    created_at: String
+    updated_at: String
+}
+
+type Policy {
+    id: ID!
+    name: String!
+    description: String!
+    coverage_amount: String!
+    premium_amount: String!
+    created_at: String
+    updated_at: String
+}
+
+type CarIssue {
+    id: ID!
+    car: Car! @belongsTo
+    reporter: User! @belongsTo
+    description: String!
+    status: String!
+    created_at: String
+    updated_at: String
+}
+
+type Coupon {
+    id: ID!
+    code: String!
+    discount_amount: Int!
+    valid_from: String!
+    valid_until: String!
+    created_at: String
+    updated_at: String
+}
+
+type SubscriptionPlan {
+    id: ID!
+    name: String!
+    description: String!
+    price: Int!
+    features: String!
+    created_at: String
+    updated_at: String
+    user_subscriptions: [UserSubscription]! @hasMany
+}
+
+type UserSubscription {
+    id: ID!
+    user: User! @belongsTo
+    plan: SubscriptionPlan! @belongsTo
+    start_date: String!
+    end_date: String!
+    status: String!
+    created_at: String
+    updated_at: String
+}
+
+type Accessory {
+    id: ID!
+    car: Car! @belongsTo
+    name: String!
+    description: String!
+    price: Int!
+    created_at: String
+    updated_at: String
+}
+
+type MaintenanceService {
+    id: ID!
+    name: String!
+    description: String!
+    cost: Int!
+    created_at: String
+    updated_at: String
+    service_requests: [ServiceRequest]! @hasMany
+}
+
+type ServiceRequest {
+    id: ID!
+    user: User! @belongsTo
+    service: MaintenanceService! @belongsTo
+    request_date: String!
+    status: String!
+    created_at: String
+    updated_at: String
+}
+
+type Preference {
+    id: ID!
+    user: User! @belongsTo
+    notification_enabled: Boolean!
+    newsletter_subscribed: Boolean!
+    theme: String!
+    created_at: String
+    updated_at: String
+}
+
+type TripLog {
+    id: ID!
+    user: User! @belongsTo
+    car: Car! @belongsTo
+    start_date: String!
+    end_date: String!
+    distance_traveled: Int!
+    created_at: String
+    updated_at: String
+}
+
+type FuelLog {
+    id: ID!
+    car: Car! @belongsTo
+    log_date: String!
+    fuel_amount: Int!
+    fuel_price_per_unit: Int!
+    created_at: String
+    updated_at: String
+}
+
+type TrafficViolation {
+    id: ID!
+    user: User! @belongsTo
+    car: Car! @belongsTo
+    violation_date: String!
+    description: String!
+    fine_amount: Int!
+    status: String!
+    created_at: String
+    updated_at: String
+}
+
+type Document {
+    id: ID!
+    user: User! @belongsTo
+    document_type: String!
+    file_url: String!
+    created_at: String
+    updated_at: String
+}
+
+type Transaction {
+    id: ID!
+    user: User! @belongsTo
+    amount: Int!
+    transaction_date: String!
+    transaction_type: String!
+    status: String!
+    created_at: String
+    updated_at: String
+}
+
+type LoyaltyPoint {
+    id: ID!
+    user: User! @belongsTo
+    points_balance: Int!
+    created_at: String
+    updated_at: String
+}

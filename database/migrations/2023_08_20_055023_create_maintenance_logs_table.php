@@ -11,7 +11,7 @@ return new class extends Migration
      */
     public function up(): void
     {
-        Schema::create('maintenanceLogs', function (Blueprint $table) {
+        Schema::create('maintenance_logs', function (Blueprint $table) {
             $table->id();
             $table->unsignedBigInteger("car_id");
             $table->date("log_date");
