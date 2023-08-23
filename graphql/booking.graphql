@@ -5,4 +5,6 @@ extend type Query {
 
 extend type Mutation {
     createBooking(userId: ID!, carId: ID!, pickupDate: String!, returnDate: String!): Booking!
+    updateBooking(id: ID! @eq, pickup_date: String, return_date: String): Booking! @update
+    cancelBooking(id: ID!): Booking
 }

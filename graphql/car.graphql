@@ -2,3 +2,9 @@ extend type Query {
     availableCars: [Car]! @all
     car(id: ID! @eq): Car @find
 }
+
+extend type Mutation {
+    addCar(make: String!, model: String!, year: Int!, price: Int!, category_id: ID!): Car! @create
+    updateCar(id: ID! @eq, make: String, model: String, year: Int, price: Int): Car @update
+    deleteCar(id: ID! @eq): Car! @delete
+}

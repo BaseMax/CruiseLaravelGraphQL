@@ -1,0 +1,10 @@
+extend type Query {
+    carCategories: [Category]! @all
+    carCategory(id: ID!): Category @find
+}
+
+extend type Mutation {
+    addCarCategory(name: String!, description: String!): Category! @create
+    updateCarCategory(id: ID! @eq, name: String, description: String): Category @update
+    deleteCarCategory(id: ID! @eq): Category @delete
+}

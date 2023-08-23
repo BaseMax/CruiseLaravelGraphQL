@@ -1,3 +1,5 @@
 #import types.graphql
 #import car.graphql
 #import booking.graphql
+#import category.graphql
+#import user.graphql
