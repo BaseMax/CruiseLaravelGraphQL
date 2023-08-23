@@ -3,3 +3,8 @@ extend type Mutation {
     updateUser(id: ID! @eq, name: String, email: String): User @update
     deleteUser(id: ID! @eq): User @delete
 }
+
+extend type Query {
+    userDashboard(id: ID! @eq): Preference @find
+    totalBookingsByUser(userId: ID!): Int!
+}

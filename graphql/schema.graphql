@@ -3,3 +3,4 @@
 #import booking.graphql
 #import category.graphql
 #import user.graphql
+#import revenue.graphql

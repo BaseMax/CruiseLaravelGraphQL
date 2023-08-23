@@ -1,6 +1,11 @@
 extend type Query {
     booking(id: ID! @eq): Booking @find
     userBookings(userId: ID!): [Booking]!
+    allBookings: [Booking]! @all
+    bookingsByStatus(status: String!): [Booking]!
+    bookingsByCar(carId: ID!): [Booking]!
+    userLastBooking(userId: ID!): Booking
+    bookingsBetweenDates(startDate: String!, endDate: String!): [Booking]!
 }
 
 extend type Mutation {
