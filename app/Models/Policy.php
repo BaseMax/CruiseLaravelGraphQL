@@ -10,4 +10,11 @@ class Policy extends Model
     use HasFactory;
 
     protected $table = "insurance_policies";
+
+    protected $fillable = [
+        "name",
+        "description",
+        "coverage_amount",
+        "premium_amount"
+    ];
 }

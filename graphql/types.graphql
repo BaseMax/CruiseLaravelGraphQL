@@ -40,7 +40,7 @@ type Car {
     features: [Feature]! @hasMany
     wishes: [Wish]! @hasMany
     availabilities: [Availability]! @hasMany
-    Maintenance_logs: [MaintenanceLog]! @hasMany
+    maintenance_logs: [MaintenanceLog]! @hasMany
     car_rentals: [CarRental]! @hasMany
     ratings: [Rating]! @hasMany
     car_issues: [CarIssue]! @hasMany

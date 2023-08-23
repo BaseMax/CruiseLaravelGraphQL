@@ -2,3 +2,7 @@ extend type Query {
     booking(id: ID! @eq): Booking @find
     userBookings(userId: ID!): [Booking]!
 }
+
+extend type Mutation {
+    createBooking(userId: ID!, carId: ID!, pickupDate: String!, returnDate: String!): Booking!
+}
