@@ -7,4 +7,5 @@ extend type Mutation {
 extend type Query {
     userDashboard(id: ID! @eq): Preference @find
     totalBookingsByUser(userId: ID!): Int!
+    userByEmail(email: String! @eq): User @find
 }

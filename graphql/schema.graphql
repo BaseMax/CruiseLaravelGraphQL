@@ -4,3 +4,4 @@
 #import category.graphql
 #import user.graphql
 #import revenue.graphql
+#import review.graphql

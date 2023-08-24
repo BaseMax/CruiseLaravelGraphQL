@@ -6,10 +6,12 @@ extend type Query {
     bookingsByCar(carId: ID!): [Booking]!
     userLastBooking(userId: ID!): Booking
     bookingsBetweenDates(startDate: String!, endDate: String!): [Booking]!
+    bookingsByDate(date: String!): [Booking]!
 }
 
 extend type Mutation {
     createBooking(userId: ID!, carId: ID!, pickupDate: String!, returnDate: String!): Booking!
     updateBooking(id: ID! @eq, pickup_date: String, return_date: String): Booking! @update
     cancelBooking(id: ID!): Booking
+    deleteBooking(id: ID! @eq): Booking @delete
 }

@@ -1,0 +1,7 @@
+extend type Mutation {
+    addReview(user_id: ID!, car_id: ID!, rating: Int!, review_text: String!): Review @create
+}
+
+extend type Query {
+    averageRatingForCar(carId: ID!): Int
+}

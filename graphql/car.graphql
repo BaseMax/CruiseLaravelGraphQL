@@ -3,6 +3,10 @@ extend type Query {
     car(id: ID! @eq): Car @find
     searchCars(keyword: String!, limit: Int): [Car]!
     carsByCategory(categoryId: ID!): [Car]!
+    recentlyAddedCars(limit: Int): [Car]!
+    carsByMakeAndModel(make: String! @eq, model: String! @eq): Car! @find
+    carsByYear(year: Int! @eq): [Car]! @all
+    carsByPriceRange(minPrice: Int!,maxPrice: Int!): [Car]!
 }
 
 extend type Mutation {
