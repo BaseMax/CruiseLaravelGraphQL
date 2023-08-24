@@ -178,6 +178,69 @@ mutation {
 | `upcomingBookingsByCar` | Fetch upcoming bookings for a specific car.                      | `query { upcomingBookingsByCar(carId: 31) { id user { name } pickupDate returnDate ... } }` |
 | `recentlyBookedUsers`   | Retrieve a list of users who made recent bookings.               | `query { recentlyBookedUsers(limit: 5) { id name ... } }` |
 
+## Examples
+
+![Example](screenshots/08-55-34.png)
+
+![Example](screenshots/09-00-47.png)
+
+![Example](screenshots/09-30-19.png)
+
+![Example](screenshots/09-35-51.png)
+
+![Example](screenshots/10-03-33.png)
+
+![Example](screenshots/10-07-39.png)
+
+![Example](screenshots/10-09-51.png)
+
+![Example](screenshots/10-13-03.png)
+
+![Example](screenshots/18-04-21.png)
+
+![Example](screenshots/18-05-57.png)
+
+![Example](screenshots/18-09-41.png)
+
+![Example](screenshots/18-23-01.png)
+
+![Example](screenshots/18-27-34.png)
+
+![Example](screenshots/18-29-20.png)
+
+![Example](screenshots/18-33-29.png)
+
+![Example](screenshots/19-02-39.png)
+
+![Example](screenshots/19-08-00.png)
+
+![Example](screenshots/19-10-04.png)
+
+![Example](screenshots/19-24-52.png)
+
+![Example](screenshots/19-28-22.png)
+
+![Example](screenshots/19-44-53.png)
+
+![Example](screenshots/19-52-00.png)
+
+![Example](screenshots/19-59-11.png)
+
+![Example](screenshots/20-27-45.png)
+
+![Example](screenshots/20-31-29.png)
+
+![Example](screenshots/20-48-35.png)
+
+![Example](screenshots/20-59-18.png)
+
+![Example](screenshots/21-11-34.png)
+
+![Example](screenshots/21-12-01.png)
+
+![Example](screenshots/21-12-32.png)
+
+![Example](screenshots/21-17-26.png)
 ## Database Schema
 
 ### Users Table
