@@ -41,16 +41,10 @@ cp .env.example .env
 
 Configure `.env` with your database and Redis settings.
 
-Generate the application key.
-
-```bash
-php artisan key:generate
-```
-
 Run database migrations and seeders to set up the initial database structure and sample data.
 
 ```bash
-php artisan migrate --seed
+php artisan migrate
 ```
 
 Start the development server.
@@ -59,7 +53,13 @@ Start the development server.
 php artisan serve
 ```
 
-Access the GraphQL Playground at `http://localhost:8000/graphql` in your web browser.
+Run unit tests:
+
+```bash
+php artisan test
+```
+
+Access the GraphQL Playground at `http://localhost:8000/graphiql` in your web browser.
 
 ## GraphQL API
 
