@@ -2097,7 +2097,7 @@ class CreateEmployeeRolesTable extends Migration
 }
 ```
 
-Adjust the files according to your project's needs, relationships, and any additional columns you might require. After creating the migrations, run php artisan migrate to apply them to your database.
+Adjust the files according to your project's needs, relationships, and any additional columns you might require. After creating the migrations, run `php artisan migrate` to apply them to your database.
 
 ## GraphQL Structure
 
