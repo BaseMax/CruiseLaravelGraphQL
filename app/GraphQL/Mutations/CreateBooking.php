@@ -3,6 +3,7 @@
 namespace App\GraphQL\Mutations;
 
 use App\Models\Booking;
+use Illuminate\Support\Facades\Cache;
 
 final class CreateBooking
 {

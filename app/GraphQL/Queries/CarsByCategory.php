@@ -3,6 +3,7 @@
 namespace App\GraphQL\Queries;
 
 use App\Models\Car;
+use Illuminate\Support\Facades\Cache;
 
 final class CarsByCategory
 {
@@ -11,7 +12,9 @@ final class CarsByCategory
      */
     public function __invoke($_, array $args)
     {
-        $cars = Car::where("category_id", $args["categoryId"])->get();
+        $cars = Cache::remember("cars_by_category_" . $args["categoryId"], 20, function () use ($args) {
+            return Car::where("category_id", $args["categoryId"])->get();
+        });
         return $cars;
     }
 }

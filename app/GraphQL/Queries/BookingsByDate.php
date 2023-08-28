@@ -3,6 +3,7 @@
 namespace App\GraphQL\Queries;
 
 use App\Models\Booking;
+use Illuminate\Support\Facades\Cache;
 
 final class BookingsByDate
 {
@@ -11,7 +12,9 @@ final class BookingsByDate
      */
     public function __invoke($_, array $args)
     {
-        $bookings = Booking::where("created_at", $args["date"])->get();
+        $bookings = Cache::remember("bookings_by_date_" . $args["date"], 20, function () use ($args) {
+            return Booking::where("created_at", $args["date"])->get();
+        });
         return $bookings;
     }
 }

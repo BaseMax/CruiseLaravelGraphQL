@@ -3,6 +3,7 @@
 namespace App\GraphQL\Queries;
 
 use App\Models\Booking;
+use Illuminate\Support\Facades\Cache;
 
 final class TotalBookingsByUser
 {
@@ -11,6 +12,8 @@ final class TotalBookingsByUser
      */
     public function __invoke($_, array $args)
     {
-        return Booking::where("user_id", $args["userId"])->count();
+        return Cache::remember("total_bookings_by_user_" . $args["userId"], 60, function () use ($args) {
+            return Booking::where("user_id", $args["userId"])->count();
+        });
     }
 }
